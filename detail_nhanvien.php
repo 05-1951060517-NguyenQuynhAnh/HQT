@@ -146,7 +146,7 @@
         </div>
         <div class="content" style="width: 84%;height:1000px">
             <header style="background:#f2f4d7" class="p-2 d-flex">
-                <h5 class="ms-5 mt-1 fw-bold d-inline col" style="color:#307ecc">Khách hàng</h5>
+                <h5 class="ms-5 mt-1 fw-bold d-inline col" style="color:#307ecc">Nhân viên</h5>
                 <div class="col"></div>
                 <div class="col"></div>
                 <a class=" d-inline col ms-5" href="addEmployee_nhanvien.php">
