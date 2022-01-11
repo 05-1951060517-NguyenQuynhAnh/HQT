@@ -1,0 +1,49 @@
+main{
+    display: flex;
+}
+.sidebar{
+    background: #eee;
+    border: 1px solid #dadada;
+    position:fixed;
+}
+.nav-item{
+    padding: 7px;
+    font-family: Arial;
+    letter-spacing: 0.65px;
+    font-size: 14px;
+    font-weight:lighter;
+    border-left: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+}
+.nav-item:hover{
+    background:white ;
+    border-right: 3px solid #337ab7;
+}
+.nav-item a{
+    color: #464646;
+    display: flex;
+}
+.nav-item .text{
+padding-top: 2px;
+}
+.other{
+    background: white;
+    border-right: 3px solid #337ab7;
+    border-radius: 5px;
+}
+.content{
+    margin-left: 16%;
+}
+.detail{
+   
+ margin: 150px 80px 0px 100px;
+}
+.fix{
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+}
+.profile .col{
+    width: 260px;
+    height: 100px;
+    background-color: red;
+}

@@ -1,0 +1,9 @@
+.profile .col{
+    width: 260px;
+    height: 100px;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+.date{
+    margin-bottom: -8px;
+}
