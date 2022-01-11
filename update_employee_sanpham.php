@@ -1,3 +1,24 @@
+<?php
+  // admin.php TRUYỀN DỮ LIỆU SANG
+    // deleteEmployee: NHẬN DỮ LIỆU TỪ admin.php gửi sang
+    $MaSP = $_GET['id'];
+
+    // Bước 01: Kết nối Database Server
+    $conn = mysqli_connect('localhost','root','','qlcuahang');
+    if(!$conn){
+        die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+    }
+    // Bước 02: Thực hiện truy vấn
+    $sql = "SELECT * FROM tbsanpham WHERE MaSP = '$MaSP'";
+
+    $result = mysqli_query($conn,$sql);
+
+    if(mysqli_num_rows($result)>0){
+        $row = mysqli_fetch_assoc($result);
+    }
+    // Bước 03: Đóng kết nối
+    mysqli_close($conn);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +49,7 @@
                         <div class="text">
                             <p class="d-inline"> Trang chủ</p>
                         </div>
-    
+
                     </a>
                 </li>
                 <li class="nav-item">
@@ -48,7 +69,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="sanpham.php">
+                    <a class="nav-link" href="#">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
                                 class="bi bi-box-seam me-3" viewBox="0 0 16 16">
@@ -122,6 +143,40 @@
                 </li>
             </ul>
         </div>
+        <div class="content" style="width: 84%;height:1000px">
+            <header style="background:#f2f4d7" class="p-2 d-flex">
+                <h5 class="ms-5 mt-1 fw-bold d-inline col" style="color:#307ecc">Cập nhật thông tin sản phẩm</h5>
+            </header>
+            <main class="">
+            <div class="container" style="margin:130px 200px 0px 150px">
+            <form action="process-update-employee_sanpham.php" method="post">
+                <div class="form-group">
+                    <label for="txtMaSP">Mã sản phẩm</label>
+                    <input type="text" class="form-control" id="txtMaSP" name="txtMaSP" 
+                        placeholder="Nhập mã sản phẩm" value="<?php echo $row['MaSP'];?>">
+                </div>
+                <div class="form-group">
+                    <label for="txtTenSP">Tên sản phẩm</label>
+                    <input type="text" class="form-control" id="txtTenSP" name="txtTenSP" placeholder="Nhập tên sản phẩm"
+                        value="<?php echo $row['TenSP'];?>">
+                </div>
+                <div class="form-group">
+                    <label for="txtSoluongcon">Số lượng còn</label>
+                    <input type="text" class="form-control" id="txtSoluongcon" name="txtSoluongcon" placeholder="Nhập số lượng còn"
+                        value="<?php echo $row['Soluongcon'];?>">
+                </div>
+                <div class="form-group">
+                    <label for="txtGianhap">Giá nhập</label>
+                    <input type="tel" class="form-control" id="txtGianhap" name="txtGianhap" placeholder="Nhập giá nhập"
+                        value="<?php echo $row['Gianhap'];?>">
+                </div>
+                <button type="submit" name="sua" class="btn btn-primary mt-3">Lưu lại</button>
+            </form>
+        </div>
+
+            </main>
+        </div>
+        
     </main>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
