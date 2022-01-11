@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quản lý cửa hàng</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css.css">
@@ -13,11 +14,10 @@
 
 <body>
     <main>
-
-        <div class="sidebar" style="width: 16%;height:1000px; background:#eee">
+        <div class="sidebar" style="width: 16%;height:1000px">
             <ul class="nav flex-column">
                 <li class="nav-item mt-5" style="background:#33CB82">
-                    <a class="nav-link active" style="color: white" aria-current="page" href="#">
+                    <a class="nav-link active" style="color: white" aria-current="page" href="home.php">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
                                 class="bi bi-house-door me-3" viewBox="0 0 16 16">
@@ -28,11 +28,11 @@
                         <div class="text">
                             <p class="d-inline"> Trang chủ</p>
                         </div>
-    
+
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="khachhang.php">
+                <li class="nav-item other">
+                    <a class="nav-link" href="#">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
                                 class="bi bi-people-fill me-3" viewBox="0 0 16 16">
@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="sanpham.php">
+                    <a class="nav-link" href="#">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
                                 class="bi bi-box-seam me-3" viewBox="0 0 16 16">
@@ -62,7 +62,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="nhanvien.php">
+                    <a class="nav-link ">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
                                 class="bi bi-file-person me-3" viewBox="0 0 16 16">
@@ -122,8 +122,47 @@
                 </li>
             </ul>
         </div>
+        <div class="content" style="width: 84%;height:1000px">
+            <header style="background:#f2f4d7" class="p-2 d-flex">
+                <h5 class="ms-5 mt-1 fw-bold d-inline col" style="color:#307ecc">Thêm mới nhân viên</h5>
+            </header>
+            <main class="">
+                <div class="container" style="margin:130px 200px 0px 150px">
+                    <form action="process-add-employee_nhanvien.php" method="post">
+                        <div class="form-group">
+                            <label for="txtMaK">Mã nhân viên</label>
+                            <input type="text" class="form-control" id="txtMaK" name="txtMaNV"
+                                placeholder="Nhập mã nhân viên">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtHoten">Họ và tên</label>
+                            <input type="text" class="form-control" id="txtHoten" name="txtHoten"
+                                placeholder="Nhập họ tên">
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="txtDiachi">Ngày sinh</label>
+                            <input type="date" class="form-control" id="txtDiachi" name="txtNgaysinh"
+                                placeholder="Nhập ngày sinh">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtSđt">Giới tính</label>
+                            <input type="tel" class="form-control" id="txtSđt" name="txtGioitinh"
+                                placeholder="Nhập số điện thoại">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mt-3">Lưu lại</button>
+                    </form>
+                </div>
+
+            </main>
+        </div>
     </main>
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
 </script>

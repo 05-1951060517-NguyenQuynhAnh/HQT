@@ -1,3 +1,24 @@
+<?php
+  // admin.php TRUYỀN DỮ LIỆU SANG
+    // deleteEmployee: NHẬN DỮ LIỆU TỪ admin.php gửi sang
+    $MaNV = $_GET['id'];
+
+    // Bước 01: Kết nối Database Server
+    $conn = mysqli_connect('localhost','root','','qlcuahang');
+    if(!$conn){
+        die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+    }
+    // Bước 02: Thực hiện truy vấn
+    $sql = "SELECT * FROM tbnhanvien WHERE MaNV = '$MaNV'";
+
+    $result = mysqli_query($conn,$sql);
+
+    if(mysqli_num_rows($result)>0){
+        $row = mysqli_fetch_assoc($result);
+    }
+    // Bước 03: Đóng kết nối
+    mysqli_close($conn);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +49,7 @@
                         <div class="text">
                             <p class="d-inline"> Trang chủ</p>
                         </div>
-    
+
                     </a>
                 </li>
                 <li class="nav-item">
@@ -48,7 +69,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="sanpham.php">
+                    <a class="nav-link" href="#">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
                                 class="bi bi-box-seam me-3" viewBox="0 0 16 16">
@@ -62,7 +83,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="nhanvien.php">
+                    <a class="nav-link ">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
                                 class="bi bi-file-person me-3" viewBox="0 0 16 16">
@@ -122,6 +143,40 @@
                 </li>
             </ul>
         </div>
+        <div class="content" style="width: 84%;height:1000px">
+            <header style="background:#f2f4d7" class="p-2 d-flex">
+                <h5 class="ms-5 mt-1 fw-bold d-inline col" style="color:#307ecc">Cập nhật thông tin nhân viên</h5>
+            </header>
+            <main class="">
+            <div class="container" style="margin:130px 200px 0px 150px">
+            <form action="process-update-employee_nhanvien.php" method="post">
+                <div class="form-group">
+                    <label for="txtMaK">Mã nhân viên</label>
+                    <input type="text" class="form-control" id="txtMaK" name="txtMaNV" 
+                        placeholder="Nhập mã khách hàng" value="<?php echo $row['MaNV'];?>">
+                </div>
+                <div class="form-group">
+                    <label for="txtHoten">Họ và tên</label>
+                    <input type="text" class="form-control" id="txtHoten" name="txtHoten" placeholder="Nhập họ tên"
+                        value="<?php echo $row['TenNV'];?>">
+                </div>
+                <div class="form-group">
+                    <label for="txtDiachi">Ngày sinh</label>
+                    <input type="date" class="form-control" id="txtDiachi" name="txtNgaysinh" placeholder=""
+                        value="<?php echo $row['Ngaysinh'];?>">
+                </div>
+                <div class="form-group">
+                    <label for="txtSđt">Giới tính</label>
+                    <input type="text" class="form-control" id="txtSđt" name="txtGioitinh" placeholder="Nhập giới tính"
+                        value="<?php echo $row['Gioitinh'];?>">
+                </div>
+                <button type="submit" name="sua" class="btn btn-primary mt-3">Lưu lại</button>
+            </form>
+        </div>
+
+            </main>
+        </div>
+        
     </main>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
